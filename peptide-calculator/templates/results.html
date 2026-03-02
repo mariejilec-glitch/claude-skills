@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Résultats · Peptide Calculator 2026</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #0f0f1a;
+      color: #e2e8f0;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+    }
+    .container { max-width: 900px; margin: 0 auto; }
+    h1 { font-size: 1.5rem; font-weight: 700; color: #a78bfa; margin-bottom: 0.25rem; }
+    .subtitle { font-size: 0.85rem; color: #94a3b8; margin-bottom: 2rem; }
+    .section { margin-bottom: 2rem; }
+    h2 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #c4b5fd;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid #2d2d4e;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+      background: #1a1a2e;
+      border-radius: 0.75rem;
+      overflow: hidden;
+    }
+    th {
+      background: #2d2d4e;
+      color: #94a3b8;
+      text-align: left;
+      padding: 0.6rem 0.85rem;
+      font-weight: 500;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    td {
+      padding: 0.6rem 0.85rem;
+      border-top: 1px solid #1e1e38;
+      color: #e2e8f0;
+    }
+    tr:hover td { background: #1e1e38; }
+    .badge-yes {
+      background: #14532d;
+      color: #86efac;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .badge-no {
+      background: #450a0a;
+      color: #fca5a5;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .best-row td { background: #1b1b3a; border-left: 3px solid #a78bfa; }
+    .best-row:hover td { background: #22224a; }
+    .url-link { color: #818cf8; text-decoration: none; font-size: 0.8rem; }
+    .url-link:hover { text-decoration: underline; }
+    .summary-box {
+      background: #1a1a2e;
+      border: 1px solid #2d2d4e;
+      border-radius: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2rem;
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .summary-item { flex: 1; min-width: 120px; }
+    .summary-item .label { font-size: 0.75rem; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em; }
+    .summary-item .value { font-size: 1.1rem; font-weight: 700; color: #a78bfa; margin-top: 0.2rem; }
+    .actions { display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .btn {
+      padding: 0.6rem 1.25rem;
+      border-radius: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .btn-primary { background: linear-gradient(135deg, #7c3aed, #a855f7); color: #fff; }
+    .btn-secondary { background: #1e293b; color: #e2e8f0; border: 1px solid #334155; }
+    .btn:hover { opacity: 0.9; }
+    .notice {
+      background: #1e1b4b;
+      border: 1px solid #4338ca;
+      border-radius: 0.5rem;
+      padding: 0.75rem 1rem;
+      font-size: 0.8rem;
+      color: #a5b4fc;
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>&#10084;&#65039; Résultats · {{ now }}</h1>
+    <p class="subtitle">
+      Budget : {{ result.inputs.budget_mensuel }}$/mois · Poids : {{ result.inputs.poids_kg }} kg ·
+      Âge : {{ result.inputs.age }} ans · Cycle : {{ result.inputs.cycle_semaines }} semaines
+    </p>
+
+    <div class="notice">
+      &#9432; Ces informations sont fournies à titre éducatif seulement. Consulte un professionnel de santé avant tout usage.
+    </div>
+
+    {% if result.best_vendor %}
+    <div class="summary-box">
+      <div class="summary-item">
+        <div class="label">Meilleur vendor</div>
+        <div class="value">{{ result.best_vendor }}</div>
+      </div>
+      {% for v in result.vendor_costs %}{% if v.vendor == result.best_vendor %}
+      <div class="summary-item">
+        <div class="label">Coût mensuel</div>
+        <div class="value">{{ v.mensuel }} $</div>
+      </div>
+      <div class="summary-item">
+        <div class="label">Total cycle</div>
+        <div class="value">{{ v.total_cycle }} $</div>
+      </div>
+      {% endif %}{% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="actions">
+      <a href="/" class="btn btn-secondary">&#8592; Nouveau calcul</a>
+      <form method="POST" action="/export/csv" style="display:inline">
+        <input type="hidden" name="budget_mensuel" value="{{ result.inputs.budget_mensuel }}" />
+        <input type="hidden" name="poids_kg" value="{{ result.inputs.poids_kg }}" />
+        <input type="hidden" name="age" value="{{ result.inputs.age }}" />
+        <input type="hidden" name="cycle_semaines" value="{{ result.inputs.cycle_semaines }}" />
+        <input type="hidden" name="addition" value="{{ result.inputs.addition }}" />
+        <input type="hidden" name="freq_achat" value="{{ result.inputs.freq_achat }}" />
+        <button type="submit" class="btn btn-primary">&#8595; Exporter CSV</button>
+      </form>
+    </div>
+
+    <!-- Protocole -->
+    <div class="section">
+      <h2>1 · Protocole Femme Débutante</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Semaines</th>
+            <th>Retatrutide (mg/sem)</th>
+            <th>Tesamorelin (mg/jour)</th>
+            <th>{{ result.inputs.addition.upper() if result.inputs.addition != 'aucune' else 'Addition' }} (mg/sem)</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for p in result.protocol %}
+          <tr>
+            <td>{{ p.semaines }}</td>
+            <td>{{ p.reta_mg_sem }}</td>
+            <td>{{ p.tesa_mg_jour }}</td>
+            <td>{{ p.addition_mg_sem }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Reconstitution -->
+    <div class="section">
+      <h2>2 · Guide de Reconstitution ({{ 2.0 }} ml BAC water)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Vial (mg)</th>
+            <th>Concentration (mg/ml)</th>
+            <th>1 mg → ml</th>
+            <th>4 mg → ml</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for r in result.reconstitution %}
+          <tr>
+            <td>{{ r.vial_mg }}</td>
+            <td>{{ r.concentration_mg_ml }}</td>
+            <td>{{ r.one_mg_ml }}</td>
+            <td>{{ r.four_mg_ml }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Consommation -->
+    <div class="section">
+      <h2>3 · Consommation Totale du Cycle</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Produit</th>
+            <th>Total mg</th>
+            <th>Vials requis (meilleur format)</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for c in result.consumption %}
+          <tr>
+            <td>{{ c.produit }}</td>
+            <td>{{ c.total_mg }}</td>
+            <td>{{ c.vials_requis }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Coûts par vendor -->
+    <div class="section">
+      <h2>4 · Coûts Intelligents par Vendor</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Vendor</th>
+            <th>Total Cycle</th>
+            <th>Mensuel</th>
+            <th>$/mg Reta</th>
+            <th>Shipping+Taxes</th>
+            <th>Dans Budget</th>
+            <th>Source</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for v in result.vendor_costs %}
+          <tr{% if v.vendor == result.best_vendor %} class="best-row"{% endif %}>
+            <td>{{ v.vendor }}{% if v.vendor == result.best_vendor %} &#11088;{% endif %}</td>
+            <td>{{ v.total_cycle }} $</td>
+            <td>{{ v.mensuel }} $</td>
+            <td>{{ v.cost_per_mg }}</td>
+            <td>{{ v.shipping_taxes }} $</td>
+            <td>
+              {% if v.dans_budget %}
+              <span class="badge-yes">OUI</span>
+              {% else %}
+              <span class="badge-no">NON</span>
+              {% endif %}
+            </td>
+            <td><a href="{{ v.url }}" target="_blank" rel="noopener" class="url-link">Prix live &#8599;</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</body>
+</html>
