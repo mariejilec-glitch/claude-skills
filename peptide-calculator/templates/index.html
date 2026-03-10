@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ultimate Peptide Calculator 2026</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #0f0f1a;
+      color: #e2e8f0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+    .card {
+      background: #1a1a2e;
+      border: 1px solid #2d2d4e;
+      border-radius: 1rem;
+      padding: 2.5rem;
+      width: 100%;
+      max-width: 520px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    h1 { font-size: 1.5rem; font-weight: 700; color: #a78bfa; margin-bottom: 0.25rem; }
+    .subtitle { font-size: 0.85rem; color: #94a3b8; margin-bottom: 2rem; }
+    .field { margin-bottom: 1.25rem; }
+    label { display: block; font-size: 0.85rem; color: #cbd5e1; margin-bottom: 0.4rem; font-weight: 500; }
+    input, select {
+      width: 100%;
+      background: #0f0f1a;
+      border: 1px solid #334155;
+      border-radius: 0.5rem;
+      color: #e2e8f0;
+      padding: 0.6rem 0.85rem;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    input:focus, select:focus { border-color: #7c3aed; }
+    .hint { font-size: 0.75rem; color: #64748b; margin-top: 0.3rem; }
+    .error {
+      background: #450a0a;
+      border: 1px solid #dc2626;
+      border-radius: 0.5rem;
+      padding: 0.75rem 1rem;
+      color: #fca5a5;
+      margin-bottom: 1.5rem;
+      font-size: 0.875rem;
+    }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    button[type="submit"] {
+      width: 100%;
+      background: linear-gradient(135deg, #7c3aed, #a855f7);
+      color: #fff;
+      border: none;
+      border-radius: 0.5rem;
+      padding: 0.85rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 0.75rem;
+      transition: opacity 0.2s;
+    }
+    button[type="submit"]:hover { opacity: 0.9; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>&#10084;&#65039; Peptide Calculator 2026</h1>
+    <p class="subtitle">Protocole femme débutante · Montréal · Sources domestiques CA</p>
+
+    {% if error %}
+    <div class="error">{{ error }}</div>
+    {% endif %}
+
+    <form method="POST" action="/calculate">
+      <div class="grid-2">
+        <div class="field">
+          <label for="budget_mensuel">Budget mensuel ($)</label>
+          <input type="number" id="budget_mensuel" name="budget_mensuel" min="50" step="10"
+                 placeholder="200" required value="{{ request.form.get('budget_mensuel', '') }}" />
+        </div>
+        <div class="field">
+          <label for="poids_kg">Poids (kg)</label>
+          <input type="number" id="poids_kg" name="poids_kg" min="40" max="200" step="0.5"
+                 placeholder="65" required value="{{ request.form.get('poids_kg', '') }}" />
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="field">
+          <label for="age">Âge</label>
+          <input type="number" id="age" name="age" min="18" max="99"
+                 placeholder="35" required value="{{ request.form.get('age', '') }}" />
+        </div>
+        <div class="field">
+          <label for="cycle_semaines">Durée cycle (semaines)</label>
+          <input type="number" id="cycle_semaines" name="cycle_semaines" min="8" max="52"
+                 placeholder="12" required value="{{ request.form.get('cycle_semaines', '12') }}" />
+          <span class="hint">8 sem. minimum</span>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="addition">Addition performance</label>
+        <select id="addition" name="addition">
+          {% for a in additions %}
+          <option value="{{ a }}" {% if request.form.get('addition') == a %}selected{% endif %}>
+            {{ a.upper() if a != 'aucune' else 'Aucune' }}
+          </option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="freq_achat">Fréquence d'achat</label>
+        <select id="freq_achat" name="freq_achat">
+          <option value="mensuel" {% if request.form.get('freq_achat') == 'mensuel' %}selected{% endif %}>Mensuel</option>
+          <option value="bihebdo" {% if request.form.get('freq_achat') == 'bihebdo' %}selected{% endif %}>Bihebdomadaire</option>
+          <option value="hebdo" {% if request.form.get('freq_achat') == 'hebdo' %}selected{% endif %}>Hebdomadaire</option>
+        </select>
+      </div>
+
+      <button type="submit">Calculer mon protocole &#8594;</button>
+    </form>
+  </div>
+</body>
+</html>
