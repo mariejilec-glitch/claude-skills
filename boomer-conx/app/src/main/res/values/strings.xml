@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Boomer ConX</string>
+
+    <!-- Onboarding -->
+    <string name="welcome_title">Welcome to Boomer ConX</string>
+    <string name="welcome_subtitle">Your phone transition assistant</string>
+    <string name="select_language">Select your language</string>
+    <string name="language_english">English</string>
+    <string name="language_french">Français</string>
+    <string name="setup_pin">Set up your PIN</string>
+    <string name="enter_pin">Enter a 6-digit PIN</string>
+    <string name="confirm_pin">Confirm your PIN</string>
+    <string name="pin_mismatch">PINs don\'t match, please try again</string>
+    <string name="setup_biometric">Set up fingerprint</string>
+    <string name="skip">Skip</string>
+    <string name="next">Next</string>
+    <string name="done">Done</string>
+    <string name="get_started">Get Started</string>
+
+    <!-- Home -->
+    <string name="home_title">Home</string>
+    <string name="feature_backup">Backup</string>
+    <string name="feature_vault">Password Vault</string>
+    <string name="feature_ice">Emergency (ICE)</string>
+    <string name="feature_scam_shield">Scam Shield</string>
+    <string name="feature_accessibility">Accessibility</string>
+    <string name="feature_launcher">Launcher</string>
+    <string name="last_backup">Last backup: %s</string>
+    <string name="vault_items">%d passwords saved</string>
+    <string name="ice_status">ICE: %s</string>
+    <string name="ice_configured">Configured</string>
+    <string name="ice_not_configured">Not configured</string>
+
+    <!-- Backup -->
+    <string name="backup_title">Backup &amp; Restore</string>
+    <string name="backup_contacts">Contacts</string>
+    <string name="backup_photos">Photos &amp; Videos</string>
+    <string name="backup_apps">My Apps</string>
+    <string name="backup_wifi">WiFi Networks</string>
+    <string name="backup_bluetooth">Bluetooth Devices</string>
+    <string name="backup_now">Back up now</string>
+    <string name="restore">Restore</string>
+    <string name="backup_in_progress">Backing up…</string>
+    <string name="backup_complete">Backup complete!</string>
+    <string name="backup_failed">Backup failed. Please try again.</string>
+    <string name="items_backed_up">%d items backed up</string>
+
+    <!-- Vault -->
+    <string name="vault_title">Password Vault</string>
+    <string name="add_password">Add a password</string>
+    <string name="site_name">Website or app name</string>
+    <string name="username">Username or email</string>
+    <string name="password">Password</string>
+    <string name="show_password">Show password</string>
+    <string name="hide_password">Hide password</string>
+    <string name="generate_password">Generate a password</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="category">Category</string>
+    <string name="category_bank">Bank</string>
+    <string name="category_email">Email</string>
+    <string name="category_social">Social media</string>
+    <string name="category_other">Other</string>
+    <string name="vault_empty">No passwords saved yet.\nTap + to add one.</string>
+    <string name="copy_password">Copy password</string>
+    <string name="password_copied">Password copied</string>
+
+    <!-- ICE -->
+    <string name="ice_title">Emergency Info</string>
+    <string name="add_contact">Add a contact</string>
+    <string name="contact_name">Name</string>
+    <string name="phone_number">Phone number</string>
+    <string name="relationship">Relationship</string>
+    <string name="blood_type">Blood type</string>
+    <string name="allergies">Allergies</string>
+    <string name="medications">Medications</string>
+    <string name="health_card">Health card number</string>
+    <string name="call_emergency">Call</string>
+    <string name="ice_lock_screen">Show on lock screen</string>
+
+    <!-- Scam Shield -->
+    <string name="scam_shield_title">Scam Shield</string>
+    <string name="scam_detected">Scam detected!</string>
+    <string name="scam_warning">This looks suspicious</string>
+    <string name="scam_block">Block</string>
+    <string name="scam_report">Report</string>
+    <string name="scam_ignore">Ignore</string>
+    <string name="scam_sms_protection">SMS Protection</string>
+    <string name="scam_call_protection">Call Protection</string>
+    <string name="scam_url_protection">Link Protection</string>
+
+    <!-- Accessibility -->
+    <string name="accessibility_title">Accessibility</string>
+    <string name="font_size">Text size</string>
+    <string name="high_contrast">High contrast</string>
+    <string name="magnification">Magnification</string>
+    <string name="reduced_motion">Reduced motion</string>
+
+    <!-- Common -->
+    <string name="cancel">Cancel</string>
+    <string name="confirm">Confirm</string>
+    <string name="error_generic">Something went wrong. Please try again.</string>
+    <string name="loading">Loading…</string>
+    <string name="identity_verification">Identity verification</string>
+    <string name="use_pin">Use PIN</string>
+</resources>
