@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Boomer ConX</string>
+
+    <!-- Onboarding -->
+    <string name="welcome_title">Bienvenue sur Boomer ConX</string>
+    <string name="welcome_subtitle">Votre assistant de transition téléphonique</string>
+    <string name="select_language">Choisissez votre langue</string>
+    <string name="language_english">English</string>
+    <string name="language_french">Français</string>
+    <string name="setup_pin">Créez votre NIP</string>
+    <string name="enter_pin">Entrez un NIP à 6 chiffres</string>
+    <string name="confirm_pin">Confirmez votre NIP</string>
+    <string name="pin_mismatch">Les NIP ne correspondent pas, veuillez réessayer</string>
+    <string name="setup_biometric">Configurez votre empreinte digitale</string>
+    <string name="skip">Passer</string>
+    <string name="next">Suivant</string>
+    <string name="done">Terminé</string>
+    <string name="get_started">Commencer</string>
+
+    <!-- Home -->
+    <string name="home_title">Accueil</string>
+    <string name="feature_backup">Sauvegarde</string>
+    <string name="feature_vault">Coffre-fort</string>
+    <string name="feature_ice">Urgence (ICE)</string>
+    <string name="feature_scam_shield">Protection arnaque</string>
+    <string name="feature_accessibility">Accessibilité</string>
+    <string name="feature_launcher">Lanceur</string>
+    <string name="last_backup">Dernière sauvegarde : %s</string>
+    <string name="vault_items">%d mots de passe enregistrés</string>
+    <string name="ice_status">ICE : %s</string>
+    <string name="ice_configured">Configuré</string>
+    <string name="ice_not_configured">Non configuré</string>
+
+    <!-- Backup -->
+    <string name="backup_title">Sauvegarde et restauration</string>
+    <string name="backup_contacts">Contacts</string>
+    <string name="backup_photos">Photos et vidéos</string>
+    <string name="backup_apps">Mes applications</string>
+    <string name="backup_wifi">Réseaux WiFi</string>
+    <string name="backup_bluetooth">Appareils Bluetooth</string>
+    <string name="backup_now">Sauvegarder maintenant</string>
+    <string name="restore">Restaurer</string>
+    <string name="backup_in_progress">Sauvegarde en cours…</string>
+    <string name="backup_complete">Sauvegarde terminée!</string>
+    <string name="backup_failed">La sauvegarde a échoué. Veuillez réessayer.</string>
+    <string name="items_backed_up">%d éléments sauvegardés</string>
+
+    <!-- Vault -->
+    <string name="vault_title">Coffre-fort de mots de passe</string>
+    <string name="add_password">Ajouter un mot de passe</string>
+    <string name="site_name">Nom du site ou de l\'application</string>
+    <string name="username">Nom d\'utilisateur ou courriel</string>
+    <string name="password">Mot de passe</string>
+    <string name="show_password">Afficher le mot de passe</string>
+    <string name="hide_password">Masquer le mot de passe</string>
+    <string name="generate_password">Générer un mot de passe</string>
+    <string name="save">Enregistrer</string>
+    <string name="delete">Supprimer</string>
+    <string name="edit">Modifier</string>
+    <string name="category">Catégorie</string>
+    <string name="category_bank">Banque</string>
+    <string name="category_email">Courriel</string>
+    <string name="category_social">Réseaux sociaux</string>
+    <string name="category_other">Autre</string>
+    <string name="vault_empty">Aucun mot de passe enregistré.\nAppuyez sur + pour en ajouter un.</string>
+    <string name="copy_password">Copier le mot de passe</string>
+    <string name="password_copied">Mot de passe copié</string>
+
+    <!-- ICE -->
+    <string name="ice_title">Info d\'urgence</string>
+    <string name="add_contact">Ajouter un contact</string>
+    <string name="contact_name">Nom</string>
+    <string name="phone_number">Numéro de téléphone</string>
+    <string name="relationship">Lien de parenté</string>
+    <string name="blood_type">Groupe sanguin</string>
+    <string name="allergies">Allergies</string>
+    <string name="medications">Médicaments</string>
+    <string name="health_card">Numéro de carte santé</string>
+    <string name="call_emergency">Appeler</string>
+    <string name="ice_lock_screen">Afficher sur l\'écran de verrouillage</string>
+
+    <!-- Scam Shield -->
+    <string name="scam_shield_title">Protection arnaque</string>
+    <string name="scam_detected">Arnaque détectée!</string>
+    <string name="scam_warning">Ceci semble suspect</string>
+    <string name="scam_block">Bloquer</string>
+    <string name="scam_report">Signaler</string>
+    <string name="scam_ignore">Ignorer</string>
+    <string name="scam_sms_protection">Protection SMS</string>
+    <string name="scam_call_protection">Protection appels</string>
+    <string name="scam_url_protection">Protection liens</string>
+
+    <!-- Accessibility -->
+    <string name="accessibility_title">Accessibilité</string>
+    <string name="font_size">Taille du texte</string>
+    <string name="high_contrast">Contraste élevé</string>
+    <string name="magnification">Agrandissement</string>
+    <string name="reduced_motion">Mouvement réduit</string>
+
+    <!-- Common -->
+    <string name="cancel">Annuler</string>
+    <string name="confirm">Confirmer</string>
+    <string name="error_generic">Une erreur est survenue. Veuillez réessayer.</string>
+    <string name="loading">Chargement…</string>
+    <string name="identity_verification">Vérification d\'identité</string>
+    <string name="use_pin">Utiliser le NIP</string>
+</resources>
