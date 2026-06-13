@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- `statistical-analysis-tools` skill covering Shannon entropy, chi-square goodness-of-fit, Poisson distribution simulation, Martingale processes, logistic map chaos theory, and hypothesis testing
+
 ## [0.4.8] - 2026-02-17
 
 ### Added

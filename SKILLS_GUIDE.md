@@ -79,6 +79,7 @@ A guide for choosing the right skill for your task. For installation, see [Quick
 - **[Prompt Engineer](https://jeffallan.github.io/claude-skills/skills/data-ml/prompt-engineer/)**: LLM prompt design, chain-of-thought, few-shot learning, evaluation
 - **[RAG Architect](https://jeffallan.github.io/claude-skills/skills/data-ml/rag-architect/)**: RAG systems, vector databases, embeddings, semantic search
 - **[Fine-Tuning Expert](https://jeffallan.github.io/claude-skills/skills/data-ml/fine-tuning-expert/)**: LLM fine-tuning, LoRA, QLoRA, PEFT, model optimization
+- **[Statistical Analysis Tools](https://jeffallan.github.io/claude-skills/skills/data-ml/statistical-analysis-tools/)**: Entropy, chi-square tests, Poisson distribution, Martingale simulation, chaos theory, hypothesis testing
 
 ### Platform Specialists
 - **[Salesforce Developer](https://jeffallan.github.io/claude-skills/skills/platform/salesforce-developer/)**: Apex, Lightning Web Components, SOQL, governor limits
